@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>大家们</title>
+    <!-- <link rel="stylesheet" href="./css/audioPlayer.css" /> -->
+    <style>
+        div.back {
+          position: fixed;
+          top: 20px;
+          left: 10px;
+          width: 120px;
+        }
+        div.date {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 150px;
+      }
+      div.zuozhemeng {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 300px;
+      }
+      div.bt1{
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 200px;
+      }
+      div.bt2{
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 200px;
+      }
+      div.bt3{
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 200px;
+      }
+      div.buttom{
+     position: fixed;
+     top: 20px;
+     right:10px;
+     width: 200px; 
+   }
+      </style>
+    <script src="./js/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    <div class="back">
+        <a href="index.html"><img src="images/Back.png"width="120"></a>
+    </div>
+
+    <div class="date">
+        <img src="images/Date.png" width="150">
+    </div>
+
+    <div class="zuozhemeng">
+        <img src="images/Down_R.png" width="300">
+    </div>
+
+    <div class="buttom">
+        <a href="info.html"><img src="images/bt-bc.png" width="200" height="68"></a>
+   </div>
+
+    <div style=" width: 100%;height: 97%; position: absolute;">
+        <div style="background-image: url('./img/bg-beibei.png');width: 100%;height: 98%;"></div>
+        <div class="audioPlayer">
+            <div class="time">
+                <span class="currentTime">00:00</span>
+                /
+                <span class="totalTime">00:00</span>
+            </div>
+            <div class="btn2">
+                <img src="./img/1play.png" class="play" alt="" />
+                <img src="./img/1pause.png" class="pause" alt="" />
+            </div>
+            <audio id="audio3" src="./audio/贝贝.mp3"></audio>
+            <div class="totalProgress">
+                <div class="currentProgress"></div>
+            </div>
+        </div>
+        <div style="position: absolute;
+            top: 63%;
+            left: 80%;">
+            <a href="" style="text-decoration: none;">
+                <text style="
+                        border-radius: 10px;
+                        background-color: #fffc00;
+                        border:4px solid black;
+                        padding: 6px 60px;
+                        font-size: 25px;
+                        font-weight: 600;
+                        border-radius: 30px;
+                        color: black;
+                        
+                        ">
+                    录制</text>
+            </a>
+        </div>
+        <div style="position: absolute;
+            top: 70%;
+            left: 80%;">
+            <a href="" style="text-decoration: none;">
+                <text style="
+                        border-radius: 10px;
+                        background-color: #fffc00;
+                        border:4px solid black;
+                        padding: 6px 60px;
+                        font-size: 25px;
+                        font-weight: 600;
+                        border-radius: 30px;
+                        color: black;
+                        
+                        ">
+                    暂停</text>
+            </a>
+        </div>
+        <div style="position: absolute;
+            top: 80%;
+            left: 80%;">
+            <a href="./musicPage1-2.html" style="text-decoration: none;">
+                <text style="
+                border-radius: 10px;
+                background-color: #fffc00;
+                border:4px solid black;
+                padding: 6px 60px;
+                font-size: 25px;
+                font-weight: 600;
+                border-radius: 30px;
+                color: black;
+                        
+                        ">更新</button>
+            </a>
+        </div>
+    </div>
+</body>
+<style>
+    body {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+
+    .play {
+        display: block;
+    }
+
+    .pause {
+        display: none;
+    }
+
+    .audioPlayer {
+        position: absolute;
+        width: 590px;
+        height: 63px;
+        border-radius: 10px;
+        top: 69%;
+        left: 9%;
+        background-color: #fffc00;
+    }
+
+    .totalProgress {
+        cursor: pointer;
+        position: absolute;
+        top: 32px; 
+        left: 65px;
+        width: 500px;
+        height: 8px;
+        background-color: black;
+        border-radius: 10px;
+    }
+
+    .currentProgress {
+        width: 0;
+        height: 100%;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        background-color: #fffc00;
+    }
+
+    .time {
+        margin-left: 54px;
+
+        color: black;
+    }
+
+    .btn2 {
+        /* padding-top: 14px; */
+        padding-left: 20px;
+    }
+</style>
+<script src="./js/audioPlayer.js"></script>
+
+</html>

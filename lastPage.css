@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background: rgb(255, 255, 255) url('images/bg-last.gif');
+  background-size: cover;
+  position: relative;
+}
+
+div2{
+  position: fixed;
+  top: 700px;
+  left:700px;
+}
+
+form{
+  position: fixed;
+  top: 380px;
+  left:690px;
+}
+
+input[type=text], select {
+  width: 120%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
