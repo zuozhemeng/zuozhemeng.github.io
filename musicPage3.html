@@ -88,7 +88,6 @@
         <div style="position: absolute;
             top: 63%;
             left: 80%;">
-            <a href="" style="text-decoration: none;">
                 <text style="
                         border-radius: 10px;
                         background-color: #fffc00;
@@ -98,15 +97,14 @@
                         font-weight: 600;
                         border-radius: 30px;
                         color: black;
-                       
-                        ">
+                    
+                        "
+                         onclick="begin()">
                     录制</text>
-            </a>
         </div>
         <div style="position: absolute;
             top: 70%;
             left: 80%;">
-            <a href="" style="text-decoration: none;">
                 <text style="
                         border-radius: 10px;
                         background-color: #fffc00;
@@ -116,10 +114,9 @@
                         font-weight: 600;
                         border-radius: 30px;
                         color: black;
-                        
-                        ">
+                      
+                        "onclick="stop()">
                     暂停</text>
-            </a>
         </div>
         <div style="position: absolute;
             top: 80%;
@@ -139,6 +136,69 @@
                     更新</text>
             </a>
     </div>
+       <audio controls="" style="visibility: hidden"></audio>
+       <script src="recorder.js"></script>
+    <script>
+    alert("创建recoder");
+    let recorder = new Recorder({
+        sampleBits: 16,         // 采样位数，支持 8 或 16，默认是16
+        sampleRate: 16000,      // 采样率，支持 11025、16000、22050、24000、44100、48000，根据浏览器默认值，我的chrome是48000
+        numChannels: 1,         // 声道，支持 1 或 2， 默认是1
+        compiling: false       // 是否边录边转换，默认是false
+    });
+    alert("创建recoder完毕");
+ 
+    // javascript function that uploads a blob to upload.php
+    function uploadBlob(blob, filename){
+        // create a blob here for testing
+        var fd = new FormData();
+        fd.append('name', filename);
+        fd.append('audio_file', blob);
+        fd.set('filename', filename);
+        console.log(blob);
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:5000/api/upload',
+            data: fd,
+            processData: false,
+            contentType: false
+        }).done(function(data) {
+            console.log(data);
+        });
+ 
+    }
+    function begin() {
+        alert('开始录音');
+        recorder.start().then(() => {
+            // 开始录音
+            console.log("recording...")
+        }, (error) => {
+            // 出错了
+            console.log(`${error.name} : ${error.message}`);
+        });
+    }
+ 
+    function stop() {
+        alert('停止录音');
+        //recorder.stop();
+        recorder.stop();
+        recorder.play();
+        var blob = recorder.getPCMBlob();
+        alert(blob);
+        var url = URL.createObjectURL(blob);
+        alert(url);
+        console.log(url);
+        alert(blob.size);
+        if(blob.size<3*1024*1024){
+            uploadBlob(blob, "adsfas.pcm");
+        }
+        // 销毁录音实例，置为null释放资源，fn为回调函数，
+        recorder.destroy().then(function() {
+            recorder = null;
+        });
+        history.go(0);
+    }
+</script>
 </body>
 <style>
     body {

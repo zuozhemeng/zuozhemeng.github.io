@@ -42,7 +42,7 @@
         right: 0;
         width: 200px;
       }
-   div.buttom{
+      div.buttom{
      position: fixed;
      top: 20px;
      right:10px;
@@ -64,11 +64,13 @@
     <div class="zuozhemeng">
         <img src="images/Down_R.png" width="300">
     </div>
+    
     <div class="buttom">
         <a href="info.html"><img src="images/bt-bc.png" width="200" height="68"></a>
    </div>
+
     <div style=" width: 100%;height: 97%; position: absolute;">
-        <div style="background-image: url('./img/bg-beibei.png');width: 100%;height: 98%;"></div>
+        <div style="background-image: url('./img/bg-tianganwuzao.png');width: 100%;height: 98%;"></div>
         <div class="audioPlayer">
             <div class="time">
                 <span class="currentTime">00:00</span>
@@ -79,7 +81,7 @@
                 <img src="./img/1play.png" class="play" alt="" />
                 <img src="./img/1pause.png" class="pause" alt="" />
             </div>
-            <audio id="audio3" src="./audio/贝贝2.mp3"></audio>
+            <audio id="audio3" src="./audio/天干物燥1.mp3"></audio>
             <div class="totalProgress">
                 <div class="currentProgress"></div>
             </div>
@@ -130,10 +132,11 @@
                         font-weight: 600;
                         border-radius: 30px;
                         color: black;
-                     
+                       
                         ">
                     更新</text>
             </a>
+        </div>
     </div>
        <audio controls="" style="visibility: hidden"></audio>
        <script src="recorder.js"></script>
@@ -258,39 +261,4 @@
 </style>
 <script src="./js/audioPlayer.js"></script>
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title></title>
-  </head>
-  <body>
-    <p id="p1">测试添加事件：firefox使用addEventListener,ie使用attachEvent<br>
-    点击此p标签，绑定了2个弹出事件</p>
-    <script>
-      function test1() {
-        alert("test1");
-      }
-      function test2(){
-        alert("test2");
-      }
-      //添加事件通用方法
-      function addEvent(element,e,fn) {
-        //firefox使用addEventListener，来添加事件
-        if(element.addEventListener) {
-          element.addEventListener(e,fn,false);
-        }
-        //ie使用attachEvent，来添加事件
-        else {
-          element.attachEvent("on"+e,fn);
-        }
-      }
-      window.onload = function(){
-        var element = document.getElementById("p1");
-        addEvent(element,"click",test1);
-        addEvent(element,"click",test2);
-      }
-    </script>
-  </body>
-</html>
 </html>
